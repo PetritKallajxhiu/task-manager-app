@@ -166,13 +166,14 @@ router.delete('/users/me', auth, async (req, res) => {
         // if (!user) {
         //     return res.status(404).send()
         // }
-        // Kodi mesiperm optimizohet ne: 
+        // Kodi mesiperm optimizohet ne:
+
         await req.user.remove()
         // sendCancellationEmail(req.user.email, req.user.name)
         res.send(req.user)
 
     } catch (e) {
-        res.status(500).send(e)
+        res.status(401).send(e)
     }
 })
 
